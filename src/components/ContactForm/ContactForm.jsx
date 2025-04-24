@@ -1,5 +1,4 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
-
 import * as Yup from "yup";
 import { useId } from "react";
 import css from "./ContactForm.module.css";
@@ -13,6 +12,7 @@ const FeedbackSchema = Yup.object().shape({
 
 export default function ContactForm() {
   const dispatch = useDispatch();
+
   const nameFieldId = useId();
   const numberFieldId = useId();
 
@@ -35,7 +35,7 @@ export default function ContactForm() {
         </div>
         <div>
           <label className={css.text} htmlFor={numberFieldId}>Number</label>
-          <Field className={css.field} type="tel" name="number" />
+          <Field className={css.field} id="number" type="tel" name="number" />
           <ErrorMessage className={css.error} name="number" component="span" />
         </div>
         <button className={css.button} type="submit">Add contact</button>
